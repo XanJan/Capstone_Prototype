@@ -1,10 +1,16 @@
 from diffusers import StableDiffusionPipeline
+import torch
 import gradio as gr
 
 # Load the Stable Diffusion model from Hugging Face
 model_id = "runwayml/stable-diffusion-v1-5"
 pipe = StableDiffusionPipeline.from_pretrained(model_id)
 
+if torch.backends.mps.is_available():
+    device = "mps"
+else:
+    device = "cpu"
+    
 # Move the model to the appropriate device
 pipe = pipe.to(device)
 
