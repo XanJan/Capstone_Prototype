@@ -25,7 +25,7 @@ interface = gr.Interface(
     fn=generate_image,
     inputs="text",
     outputs="image",
-    title="IKEA Living Room Generator",
+    title="TinyTrends Prototype",
     description="Generate images of living rooms with IKEA furniture based on a text description."
 )
 
